@@ -36,7 +36,7 @@ def elog(event_name):
             if _options['time_function_calls']:
                 t2 = time()
             stack_trace = extract_stack(f=1)
-            print(_output(event_name, _options['time_function_calls'] ? t2 - t1 : 0, stack_trace), file=_options['output_file'])
+            print(_output(event_name, t2 - t1 if _options['time_function_calls'] else 0, stack_trace), file=_options['output_file'])
         return wrapper
     return decorator
 
